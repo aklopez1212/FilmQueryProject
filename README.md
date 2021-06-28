@@ -24,11 +24,11 @@ the user will be informed of no match and prompted to try again.
 If 3 is selected the program will print "Goodbye." and terminate.
 
 ### Technologies Used
-Java OOP
-JDBC
-Interfaces
-Try/Catch
-SQL
+-Java OOP
+-JDBC
+-Interfaces
+-Try/Catch
+-SQL
 
 ### Lessons Learned (Pos/Neg)
 Positive: Working with databases and using the info stored within to create objects
