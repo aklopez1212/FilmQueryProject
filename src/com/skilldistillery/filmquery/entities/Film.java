@@ -1,5 +1,8 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Film {
 private int filmId;
 private int releaseYear;
@@ -12,9 +15,10 @@ private String rating;
 private String filmTitle;
 private String filmDesc;
 private String specialFeatures;
+private List<Actor> list = new ArrayList<Actor>();
 
 public Film(int filmId, String filmTitle, String filmDesc, int releaseYear, int languageId, int rentalDuration, double rentalRate,
-		int length, double replaceCost, String rating, String specialFeatures) {
+		int length, double replaceCost, String rating, String specialFeatures, List<Actor> list) {
 	super();
 	this.filmId = filmId;
 	this.releaseYear = releaseYear;
@@ -22,18 +26,13 @@ public Film(int filmId, String filmTitle, String filmDesc, int releaseYear, int 
 	this.languageId = languageId;
 	this.rentalDuration = rentalDuration;
 	this.length = length;
-	this.setReplaceCost(replaceCost);
+	this.replaceCost = replaceCost;
 	this.rentalRate = rentalRate;
 	this.filmTitle = filmTitle;
 	this.filmDesc = filmDesc;
 	this.specialFeatures = specialFeatures;
+	this.list = list;
 }
-
-public Film(int filmId2, String title, String desc, short releaseYear2, int langId, int rentDur, double rate,
-		int length2, double repCost, String rating2, String features) {
-	// TODO Auto-generated constructor stub
-}
-
 public int getFilmId() {
 	return filmId;
 }
@@ -55,8 +54,8 @@ public void setRating(String rating) {
 public int getLanguageId() {
 	return languageId;
 }
-public void setLanguage_id(int language_id) {
-	this.languageId = language_id;
+public void setLanguageId(int languageId) {
+	this.languageId = languageId;
 }
 public int getRentalDuration() {
 	return rentalDuration;
@@ -102,11 +101,42 @@ public String getSpecialFeatures() {
 public void setSpecialFeatures(String specialFeatures) {
 	this.specialFeatures = specialFeatures;
 }
+public List<Actor> getList() {
+	return list;
+}
+public void setList(List<Actor> list) {
+	this.list = list;
+}
 @Override
 public String toString() {
-	return "Film [filmId=" + filmId + ", releaseYear=" + releaseYear + ", rating=" + rating + ", language_id="
-			+ languageId + ", rentalDuration=" + rentalDuration + ", length=" + length + ", rentalRate=" + rentalRate
-			+ ", filmTitle=" + filmTitle + ", filmDesc=" + filmDesc + ", specialFeatures=" + specialFeatures + "]";
+	String language = "";
+	switch (languageId) {
+	case 1:
+		language = "English";
+		break;
+	case 2:
+		language = "Italian";
+		break;
+	case 3:
+		language = "Japanese";
+		break;
+	case 4:
+		language = "Mandarin";
+		break;
+	case 5:
+		language = "French";
+		break;
+	case 6:
+		language = "German";
+		break;
+	}
+	return "Film Title: " + filmTitle + "\r" + "Release Year: " + releaseYear + "\r"
+	+ "Rating: " + rating + " Language: " + language + "\r\r" + "Description: " + filmDesc + "\r\r" + "Cast: " + list;
+//	return "Film ID: " + filmId + ", Release Year: " + releaseYear + ", Rating: " + rating + ", Language ID: "
+//			+ languageId + "\r" + "Rental Duration: " + rentalDuration + ", Length: " + length + ", Replacement Cost $" + replaceCost + ", Rental Rate $" + rentalRate
+//			+ "\r" + "Film Title: " + filmTitle + "\r" + "Film Description: " + filmDesc + "\r" + "Special Features: " + specialFeatures + "\r"
+//			+ "Cast: " + list;
+
 }
 @Override
 public int hashCode() {
